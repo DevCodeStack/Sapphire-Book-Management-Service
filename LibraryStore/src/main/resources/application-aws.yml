@@ -1,0 +1,30 @@
+server:
+  port: 8080
+
+spring:
+#  Below config is to connect to any aws resource using IAM creds
+#  cloud:
+#    aws:
+#      region:
+#        static: ap-south-1
+#      credentials:
+#        access-key: ${AWS_ACCESS_KEY_ID}   # Use environment variables
+#        secret-key: ${AWS_SECRET_ACCESS_KEY}
+#  Below config is to connect to aws secrets manager
+#  config:
+#    import: aws-secretsmanager:dev/sapphire/postgresqldb
+  datasource:
+    url: jdbc:postgresql://database-station-2.cbaqou6cmbcu.ap-south-1.rds.amazonaws.com/capstone
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+jwt:
+  secret: 0194cc426c227da58721b57cdde3fc8b6se4cr67et1k56ey9
